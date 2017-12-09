@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 导入bootstrap的css -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <!-- 导入样式 -->
+    <link rel="stylesheet" href="./css/base.css">
+    <!-- 引入自己的css -->
+    <link rel="stylesheet" href="./css/index.css">
+
+</head>
+
+<body>
+    <!-- 边栏 -->
+    <div class="lt_aside">
+        <div class="header">
+            <h2>
+                <a href="./index.html">HEIMA</a>
+            </h2>
+        </div>
+        <div class="user">
+            <img src="./images/default.png" alt="">
+            <span>超级管理员</span>
+        </div>
+        <div class="content">
+            <ul>
+                <li class='active'>
+                    <a href="javascript:void(0);">
+                        <span class='glyphicon glyphicon-user'></span>用户管理</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <span class='glyphicon glyphicon-list'></span>用户管理</a>
+                    <ol>
+                        <li>
+                            <a href="javascript:void(0)">一级分类</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">二级分类</a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <span class='glyphicon glyphicon-tags'></span>用户管理</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主体区域 -->
+    <div class="lt_main">
+        <div class="header">
+            <a class='glyphicon glyphicon-qrcode pull-left' href="javascript:void(0)"></a>
+            <a class='glyphicon glyphicon-log-out pull-right' href="javascript:void(0)"></a>
+        </div>
+        <div class="content clearfix">
+            <!-- 導航 -->
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">管理系统</a>
+                </li>
+                <li>
+                    用户管理
+                </li>
+            </ol>
+            <!-- 圖表 -->
+            <div id="main_left" class='pull-left' style="width: 600px;height:400px;"></div>
+            <div id="main_right" class='pull-right' style="width: 600px;height:400px; right:0"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+<!-- 导入jq -->
+<script src="./lib/jquery/jquery.min.js"></script>
+<!-- 导入bs的js -->
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<!-- echarts -->
+<script src="./lib/echarts/echarts.min.js"></script>
+<!-- 自己的js -->
+<script src="./js/index.js"></script>
