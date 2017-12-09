@@ -29,7 +29,7 @@
         </div>
         <div class="content">
             <ul>
-                <li class=''>
+                <li class='active'>
                     <a href="user.html">
                         <span class='glyphicon glyphicon-user'></span>用户管理</a>
                 </li>
@@ -65,12 +65,32 @@
                     <a href="#">管理系统</a>
                 </li>
                 <li>
-                    首页
+                    用户管理
                 </li>
             </ol>
-            <!-- 圖表 -->
-            <div id="main_left" class='pull-left' style="width: 600px;height:400px;"></div>
-            <div id="main_right" class='pull-right' style="width: 600px;height:400px; "></div>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>用户名</th>
+                        <th>手机号</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>itcast</td>
+                        <td>18888888888</td>
+                        <td>正常</td>
+                        <td>
+                            <button class='btn btn-danger'>禁用</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul id='pagintor'></ul>
         </div>
     </div>
     <!-- 模态框 -->
@@ -106,9 +126,40 @@
 
 <!-- 导入bs的js -->
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<!-- 导入分页插件 -->
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <!-- echarts -->
 <script src="./lib/echarts/echarts.min.js"></script>
+<!-- 导入模板引擎 -->
+<script src="./lib/artTemplate/template.js"></script>
+<!-- 定义模板 挖坑 起名字  -->
+<script type='text/html' id='user'>
+    {{each rows}}
+        <tr>
+            <!-- 第一页   1 2 3 4 5   (1-1)*5 = 0   (1-1)*5 = 0 -->
+            <!-- 第二页   6 7 8 9 10 -->
+            <!-- 第n页    (页码-1)*页容量 +1 起始索引    (页码-1)*页容量 +1+$index   -->
+            <td>{{(page-1)*size+1+$index}}</td>
+            <td>{{$value.username}}</td>
+            <td>{{$value.mobile}}</td>
+            <td>
+                {{if $value.isDelete==0}}
+                    正常
+                {{else}}
+                    已禁用
+                {{/if}}
+            </td>
+            <td data-id="{{$value.id}}">
+                {{if $value.isDelete==0}}
+                    <button class="btn btn-danger">禁用</button>
+                {{else}}
+                    <button class="btn btn-primary">启用</button>
+                {{/if}}
+            </td>
+        </tr>
+    {{/each}}
+</script>
 <!-- 公共的js -->
 <script src="./js/common.js"></script>
 <!-- 自己的js -->
-<script src="./js/index.js"></script>
+<script src="./js/user.js"></script>
